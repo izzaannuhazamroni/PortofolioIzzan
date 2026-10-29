@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>'Izzan Nuha Zamroni | Software QA & Data Analysis</title>
+  <meta name="description"
+    content="Portofolio 'Izzan Nuha Zamroni, lulusan S1 Teknik Informatika UIN Malang (Cumlaude) dengan fokus Software Testing / QA dan Data Analysis." />
+
+  <!-- Cegah flash tema: jalankan sebelum render -->
+  <script>
+    try {
+      const saved = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (saved === "dark" || (!saved && prefersDark)) {
+        document.documentElement.classList.add("dark");
+      }
+    } catch (e) { }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            navy: { 700: "#1d3557", 800: "#112240", 900: "#0a192f", 950: "#061021" },
+            accent: { DEFAULT: "#22d3ee", dark: "#0891b2" },
+          },
+          fontFamily: {
+            sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body
+  class="bg-slate-50 text-slate-700 dark:bg-navy-950 dark:text-slate-300 font-sans antialiased transition-colors duration-300">
+
+  <!-- ============ NAVBAR ============ -->
+  <header id="navbar" class="fixed top-0 inset-x-0 z-40 transition-all duration-300">
+    <nav class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="#beranda" class="text-lg font-extrabold tracking-tight text-navy-900 dark:text-white">
+        'Izzan Nu<span class="text-accent-dark dark:text-accent">ha Zamroni</span>
+      </a>
+
+      <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <li><a href="#beranda" class="nav-link">Beranda</a></li>
+        <li><a href="#pengalaman" class="nav-link">Pengalaman</a></li>
+        <li><a href="#keahlian" class="nav-link">Keahlian</a></li>
+        <li><a href="#sertifikat" class="nav-link">Sertifikat</a></li>
+        <li><a href="#kontak" class="nav-link">Kontak</a></li>
+      </ul>
+
+      <div class="flex items-center gap-2">
+        <button id="theme-toggle" type="button" aria-label="Ganti tema"
+          class="w-10 h-10 grid place-items-center rounded-lg border border-slate-300 dark:border-navy-700 text-navy-900 dark:text-accent hover:bg-slate-200 dark:hover:bg-navy-800 transition">
+          <!-- ikon bulan (tampil di mode terang) -->
+          <svg id="icon-moon" class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z" />
+          </svg>
+          <!-- ikon matahari (tampil di mode gelap) -->
+          <svg id="icon-sun" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="4" />
+            <path stroke-linecap="round"
+              d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4l1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4m11.4-11.4l1.4-1.4" />
+          </svg>
+        </button>
+
+        <button id="menu-toggle" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-menu"
+          class="md:hidden w-10 h-10 grid place-items-center rounded-lg border border-slate-300 dark:border-navy-700 text-navy-900 dark:text-white hover:bg-slate-200 dark:hover:bg-navy-800 transition">
+          <svg id="icon-open" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+          <svg id="icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Menu mobile -->
+    <div id="mobile-menu"
+      class="md:hidden hidden bg-white/95 dark:bg-navy-900/95 backdrop-blur border-t border-slate-200 dark:border-navy-800">
+      <ul class="px-4 py-3 flex flex-col text-sm font-medium">
+        <li><a href="#beranda" class="mobile-link">Beranda</a></li>
+        <li><a href="#pengalaman" class="mobile-link">Pengalaman</a></li>
+        <li><a href="#keahlian" class="mobile-link">Keahlian</a></li>
+        <li><a href="#sertifikat" class="mobile-link">Sertifikat</a></li>
+        <li><a href="#kontak" class="mobile-link">Kontak</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section id="beranda" class="relative pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+          <!-- Kolom Kiri: Biodata & Statistik -->
+          <div class="lg:col-span-7 order-2 lg:order-1 reveal">
+            <span
+              class="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-accent/10 text-accent-dark dark:text-accent border border-accent/30">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              Siap untuk Berkolaborasi &amp; Rekrutmen
+            </span>
+            <h1
+              class="mt-6 text-4xl sm:text-6xl font-extrabold tracking-tight text-navy-900 dark:text-white leading-tight">
+              Izzan Nuha Zamroni
+            </h1>
+            <p class="mt-3 text-xl sm:text-2xl font-semibold text-accent-dark dark:text-accent">
+              Software QA &amp; Data Analysis
+            </p>
+            <p class="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+              Lulusan S1 Teknik Informatika UIN Malang (Cumlaude) dengan kompetensi di bidang
+              Software Testing / Quality Assurance, validasi data, dan kepemimpinan organisasi.
+              Berorientasi pada kualitas, teliti, dan terstruktur.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="#kontak" class="btn-primary">Hubungi Saya</a>
+              <a href="#sertifikat" class="btn-outline">Lihat Sertifikat</a>
+            </div>
+
+            <!-- Statistik -->
+            <div class="mt-12 grid grid-cols-3 gap-3 sm:gap-6 max-w-xl">
+              <div class="stat-card">
+                <p class="stat-value" data-count="3.73" data-decimals="2">3.73</p>
+                <p class="stat-label">IPK S1 Cumlaude</p>
+              </div>
+              <div class="stat-card">
+                <p class="stat-value"><span data-count="5">5</span>+</p>
+                <p class="stat-label">Sertifikat Resmi</p>
+              </div>
+              <div class="stat-card">
+                <p class="stat-value" data-count="2">2</p>
+                <p class="stat-label">Pengalaman Strategis</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kolom Kanan: Foto Profil -->
+          <div class="lg:col-span-5 order-1 lg:order-2 flex justify-center reveal">
+            <div class="profile-wrapper w-full max-w-xs sm:max-w-sm">
+              <div class="profile-glow" aria-hidden="true"></div>
+              <div class="profile-frame">
+                <!-- Foto Profil Anda: Simpan foto dengan nama 'profile.jpg' di folder assets/ -->
+                <img id="profile-img" src="assets/profile.jpg" alt="Foto Profil Izzan Nuha Zamroni"
+                  class="w-full h-full object-cover object-center"
+                  onerror="this.style.display='none'; document.getElementById('profile-placeholder').classList.remove('hidden');" />
+
+                <!-- Fallback jika file gambar belum dimasukkan ke folder assets/ -->
+                <div id="profile-placeholder"
+                  class="hidden w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-slate-100 to-slate-200 dark:from-navy-800 dark:to-navy-900">
+                  <div
+                    class="w-20 h-20 rounded-full bg-accent/20 flex items-center justify-center text-accent-dark dark:text-accent mb-3">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                    </svg>
+                  </div>
+                  <p class="text-xs uppercase tracking-wider text-accent-dark dark:text-accent font-bold">Foto Profil
+                  </p>
+                  <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">
+                    Simpan file foto Anda di:<br>
+                    <code
+                      class="px-2 py-0.5 rounded bg-slate-200 dark:bg-navy-950 font-mono text-accent-dark dark:text-accent font-semibold text-[11px]">assets/profile.jpg</code>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Floating Status Badge -->
+              <div class="profile-badge">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Open for QA Roles</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PENGALAMAN ============ -->
+    <section id="pengalaman" class="py-20 bg-white dark:bg-navy-900/60 transition-colors duration-300">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="reveal">
+          <h2 class="section-title">Pengalaman &amp; Organisasi</h2>
+          <p class="section-sub">Riwayat pengalaman kerja dan kepemimpinan yang membentuk pola pikir berorientasi
+            kualitas.</p>
+        </div>
+
+        <div class="mt-12 grid lg:grid-cols-2 gap-10">
+          <!-- Kerja -->
+          <div>
+            <h3 class="group-title">Riwayat Pengalaman Kerja</h3>
+            <ol class="timeline mt-6">
+              <li class="timeline-item reveal">
+                <span class="timeline-dot"></span>
+                <article class="card">
+                  <p class="text-xs font-semibold text-accent-dark dark:text-accent">Juli 2025</p>
+                  <h4 class="card-title">PKL BPS Kota Malang</h4>
+                  <p class="card-text">
+                    Berperan dalam pengembangan Matching App (frontend), Software Testing &amp; Debugging,
+                    serta validasi data integritas antarmuka.
+                  </p>
+
+                  <!-- Foto Dokumentasi Kegiatan -->
+                  <div class="mt-4 grid grid-cols-2 gap-2">
+                    <div class="photo-slot" data-lightbox="assets/pkl-bps-1.jpg"
+                      data-caption="Dokumentasi PKL di BPS Kota Malang (Foto 1)">
+                      <img src="assets/pkl-bps-1.jpg" alt="PKL BPS Kota Malang - Foto 1"
+                        onerror="this.parentElement.classList.add('has-placeholder')" />
+                      <div class="placeholder-box">
+                        <svg class="w-5 h-5 text-accent-dark dark:text-accent mb-1 opacity-75" fill="none"
+                          stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                        </svg>
+                        <span
+                          class="text-[10px] text-slate-500 dark:text-slate-400 font-medium">assets/pkl-bps-1.jpg</span>
+                      </div>
+                      <div class="zoom-overlay">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="photo-slot" data-lightbox="assets/pkl-bps-2.jpg"
+                      data-caption="Dokumentasi PKL di BPS Kota Malang (Foto 2)">
+                      <img src="assets/pkl-bps-2.jpg" alt="PKL BPS Kota Malang - Foto 2"
+                        onerror="this.parentElement.classList.add('has-placeholder')" />
+                      <div class="placeholder-box">
+                        <svg class="w-5 h-5 text-accent-dark dark:text-accent mb-1 opacity-75" fill="none"
+                          stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                        </svg>
+                        <span
+                          class="text-[10px] text-slate-500 dark:text-slate-400 font-medium">assets/pkl-bps-2.jpg</span>
+                      </div>
+                      <div class="zoom-overlay">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mt-4 flex flex-wrap gap-2">
+                    <span class="tag">Frontend</span><span class="tag">Software Testing</span><span
+                      class="tag">Debugging</span><span class="tag">Validasi Data</span>
+                  </div>
+                </article>
+              </li>
+              <li class="timeline-item reveal">
+                <span class="timeline-dot"></span>
+                <article class="card">
+                  <p class="text-xs font-semibold text-accent-dark dark:text-accent">2025</p>
+                  <h4 class="card-title">Asisten Praktikum Multimedia &amp; Game</h4>
+                  <p class="text-sm text-slate-500 dark:text-slate-400">UIN Malang</p>
+                  <p class="card-text mt-2">
+                    Mengawasi puluhan mahasiswa, melakukan Quality Inspection &amp; Testing pada logika
+                    proyek game sebelum penilaian.
+                  </p>
+
+                  <!-- Foto Dokumentasi Kegiatan -->
+                  <div class="mt-4 grid grid-cols-2 gap-2">
+                    <div class="photo-slot" data-lightbox="assets/asisten-praktikum-1.jpg"
+                      data-caption="Asisten Praktikum Pemrograman Multimedia & Game (Foto 1)">
+                      <img src="assets/asisten-praktikum-1.jpg" alt="Asisten Praktikum - Foto 1"
+                        onerror="this.parentElement.classList.add('has-placeholder')" />
+                      <div class="placeholder-box">
+                        <svg class="w-5 h-5 text-accent-dark dark:text-accent mb-1 opacity-75" fill="none"
+                          stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                        </svg>
+                        <span
+                          class="text-[10px] text-slate-500 dark:text-slate-400 font-medium">assets/asisten-praktikum-1.jpg</span>
+                      </div>
+                      <div class="zoom-overlay">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="photo-slot" data-lightbox="assets/asisten-praktikum-2.jpg"
+                      data-caption="Asisten Praktikum Pemrograman Multimedia & Game (Foto 2)">
+                      <img src="assets/asisten-praktikum-2.jpg" alt="Asisten Praktikum - Foto 2"
+                        onerror="this.parentElement.classList.add('has-placeholder')" />
+                      <div class="placeholder-box">
+                        <svg class="w-5 h-5 text-accent-dark dark:text-accent mb-1 opacity-75" fill="none"
+                          stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                        </svg>
+                        <span
+                          class="text-[10px] text-slate-500 dark:text-slate-400 font-medium">assets/asisten-praktikum-2.jpg</span>
+                      </div>
+                      <div class="zoom-overlay">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mt-4 flex flex-wrap gap-2">
+                    <span class="tag">Quality Inspection</span><span class="tag">Testing</span><span class="tag">Game
+                      Logic</span>
+                  </div>
+                </article>
+              </li>
+            </ol>
+          </div>
+
+          <!-- Organisasi -->
+          <div>
+            <h3 class="group-title">Kepemimpinan &amp; Organisasi</h3>
+            <ol class="timeline mt-6">
+              <li class="timeline-item reveal">
+                <span class="timeline-dot"></span>
+                <article class="card">
+                  <p class="text-xs font-semibold text-accent-dark dark:text-accent">2023 – 2024</p>
+                  <h4 class="card-title">Ketua Komunitas Manusia Multimedia TI</h4>
+                  <p class="card-text">
+                    Memimpin koordinasi anggota dan pengelolaan program kerja kreatif berbasis teknologi.
+                  </p>
+
+                  <!-- Foto Dokumentasi Kegiatan -->
+                  <div class="mt-4 grid grid-cols-2 gap-2">
+                    <div class="photo-slot" data-lightbox="assets/komunitas-kmm-1.jpg"
+                      data-caption="Ketua Komunitas Manusia Multimedia TI (Foto 1)">
+                      <img src="assets/komunitas-kmm-1.jpg" alt="Komunitas Manusia Multimedia TI - Foto 1"
+                        onerror="this.parentElement.classList.add('has-placeholder')" />
+                      <div class="placeholder-box">
+                        <svg class="w-5 h-5 text-accent-dark dark:text-accent mb-1 opacity-75" fill="none"
+                          stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                        </svg>
+                        <span
+                          class="text-[10px] text-slate-500 dark:text-slate-400 font-medium">assets/komunitas-kmm-1.jpg</span>
+                      </div>
+                      <div class="zoom-overlay">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="photo-slot" data-lightbox="assets/komunitas-kmm-2.jpg"
+                      data-caption="Ketua Komunitas Manusia Multimedia TI (Foto 2)">
+                      <img src="assets/komunitas-kmm-2.jpg" alt="Komunitas Manusia Multimedia TI - Foto 2"
+                        onerror="this.parentElement.classList.add('has-placeholder')" />
+                      <div class="placeholder-box">
+                        <svg class="w-5 h-5 text-accent-dark dark:text-accent mb-1 opacity-75" fill="none"
+                          stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                        </svg>
+                        <span
+                          class="text-[10px] text-slate-500 dark:text-slate-400 font-medium">assets/komunitas-kmm-2.jpg</span>
+                      </div>
+                      <div class="zoom-overlay">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mt-4 flex flex-wrap gap-2">
+                    <span class="tag">Kepemimpinan</span><span class="tag">Koordinasi</span>
+                  </div>
+                </article>
+              </li>
+              <li class="timeline-item reveal">
+                <span class="timeline-dot"></span>
+                <article class="card">
+                  <p class="text-xs font-semibold text-accent-dark dark:text-accent">2023 – 2024</p>
+                  <h4 class="card-title">Anggota Divisi Cinematography</h4>
+                  <p class="card-text">
+                    Kolaborasi tim dalam produksi konten visual multimedia.
+                  </p>
+
+                  <!-- Foto Dokumentasi Kegiatan -->
+                  <div class="mt-4 grid grid-cols-2 gap-2">
+                    <div class="photo-slot" data-lightbox="assets/cinematography-1.jpg"
+                      data-caption="Divisi Cinematography (Foto 1)">
+                      <img src="assets/cinematography-1.jpg" alt="Divisi Cinematography - Foto 1"
+                        onerror="this.parentElement.classList.add('has-placeholder')" />
+                      <div class="placeholder-box">
+                        <svg class="w-5 h-5 text-accent-dark dark:text-accent mb-1 opacity-75" fill="none"
+                          stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                        </svg>
+                        <span
+                          class="text-[10px] text-slate-500 dark:text-slate-400 font-medium">assets/cinematography-1.jpg</span>
+                      </div>
+                      <div class="zoom-overlay">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="photo-slot" data-lightbox="assets/cinematography-2.jpg"
+                      data-caption="Divisi Cinematography (Foto 2)">
+                      <img src="assets/cinematography-2.jpg" alt="Divisi Cinematography - Foto 2"
+                        onerror="this.parentElement.classList.add('has-placeholder')" />
+                      <div class="placeholder-box">
+                        <svg class="w-5 h-5 text-accent-dark dark:text-accent mb-1 opacity-75" fill="none"
+                          stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                        </svg>
+                        <span
+                          class="text-[10px] text-slate-500 dark:text-slate-400 font-medium">assets/cinematography-2.jpg</span>
+                      </div>
+                      <div class="zoom-overlay">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mt-4 flex flex-wrap gap-2">
+                    <span class="tag">Kolaborasi Tim</span><span class="tag">Konten Visual</span>
+                  </div>
+                </article>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ KEAHLIAN ============ -->
+    <section id="keahlian" class="py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="reveal">
+          <h2 class="section-title">Matriks Kompetensi</h2>
+          <p class="section-sub">Keterampilan utama yang didukung pengalaman dan sertifikasi.</p>
+        </div>
+
+        <div class="mt-12 grid md:grid-cols-3 gap-6">
+          <article class="card reveal">
+            <div class="icon-box">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="card-title">Software QA &amp; Testing</h3>
+            <p class="card-text">Pengujian fungsionalitas, Debugging, peninjauan logika sistem, Quality-oriented
+              mindset.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon-box">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M4 7c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3zm0 0v10c0 1.7 3.6 3 8 3s8-1.3 8-3V7M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" />
+              </svg>
+            </div>
+            <h3 class="card-title">Data Analysis &amp; SQL</h3>
+            <p class="card-text">Sertifikasi DQLab: Fundamental SQL (SELECT, FUNCTION &amp; GROUP BY, INNER JOIN &amp;
+              UNION), Analisis Data Excel.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon-box">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M17 20h5v-2a4 4 0 00-3-3.9M9 20H4v-2a4 4 0 013-3.9m6-5.1a4 4 0 11-8 0 4 4 0 018 0zm6 2a3 3 0 11-6 0" />
+              </svg>
+            </div>
+            <h3 class="card-title">Soft Skills</h3>
+            <p class="card-text">Problem Solving, Ketelitian Tinggi (Attention to Detail), Disiplin, Komunikasi Efektif,
+              Kepemimpinan.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERTIFIKAT ============ -->
+    <section id="sertifikat" class="py-20 bg-white dark:bg-navy-900/60 transition-colors duration-300">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="reveal">
+          <h2 class="section-title">Arsip Sertifikat Resmi</h2>
+          <p class="section-sub">Bukti kredibilitas kompetensi teknis yang telah diverifikasi. Klik kartu untuk melihat
+            pratinjau.</p>
+        </div>
+
+        <div id="filter-bar" class="mt-8 flex flex-wrap gap-2 reveal" role="group" aria-label="Filter sertifikat">
+          <button class="filter-btn active" data-filter="all">Semua</button>
+          <button class="filter-btn" data-filter="pengalaman">Pengalaman</button>
+          <button class="filter-btn" data-filter="sql">Data &amp; SQL</button>
+          <button class="filter-btn" data-filter="kompetensi">Kompetensi</button>
+        </div>
+
+        <p id="filter-count" class="mt-4 text-sm text-slate-500 dark:text-slate-400" aria-live="polite"></p>
+
+        <div id="cert-grid" class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      </div>
+    </section>
+
+    <!-- ============ KONTAK ============ -->
+    <section id="kontak" class="py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="reveal">
+          <h2 class="section-title">Hubungi Saya</h2>
+          <p class="section-sub">Terbuka untuk peluang rekrutmen dan kolaborasi di bidang QA dan Data.</p>
+        </div>
+
+        <div class="mt-12 grid lg:grid-cols-5 gap-10">
+          <!-- Info -->
+          <div class="lg:col-span-2 space-y-4 reveal">
+            <a href="mailto:izzannuhaz@gmail.com" class="contact-item">
+              <span class="icon-box !mb-0"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg></span>
+              <span><span class="block text-xs text-slate-500 dark:text-slate-400">Email</span><span
+                  class="font-medium">izzannuhaz@gmail.com</span></span>
+            </a>
+            <a href="https://wa.me/6285923418951" target="_blank" rel="noopener noreferrer" class="contact-item">
+              <span class="icon-box !mb-0"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M3 5a2 2 0 012-2h2.3a1 1 0 01.95.68l1.1 3.3a1 1 0 01-.5 1.2l-1.6.8a11 11 0 005.2 5.2l.8-1.6a1 1 0 011.2-.5l3.3 1.1a1 1 0 01.68.95V19a2 2 0 01-2 2A16 16 0 013 5z" />
+                </svg></span>
+              <span><span class="block text-xs text-slate-500 dark:text-slate-400">Telepon / WA</span><span
+                  class="font-medium">+62 859-2341-8951</span></span>
+            </a>
+            <div class="contact-item cursor-default">
+              <span class="icon-box !mb-0"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M17.7 16.7L13.4 21a2 2 0 01-2.8 0l-4.3-4.3a8 8 0 1111.4 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg></span>
+              <span><span class="block text-xs text-slate-500 dark:text-slate-400">Lokasi</span><span
+                  class="font-medium">Madiun / Malang, Jawa Timur</span></span>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <form id="contact-form" class="lg:col-span-3 card space-y-5 reveal" novalidate>
+            <div>
+              <label for="name" class="form-label">Nama</label>
+              <input id="name" name="name" type="text" autocomplete="name" class="form-input"
+                placeholder="Nama lengkap Anda" />
+              <p class="form-error" data-error-for="name"></p>
+            </div>
+            <div>
+              <label for="email" class="form-label">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" class="form-input"
+                placeholder="nama@perusahaan.com" />
+              <p class="form-error" data-error-for="email"></p>
+            </div>
+            <div>
+              <label for="message" class="form-label">Pesan</label>
+              <textarea id="message" name="message" rows="5" class="form-input resize-y"
+                placeholder="Tulis pesan Anda (minimal 10 karakter)"></textarea>
+              <p class="form-error" data-error-for="message"></p>
+            </div>
+            <button type="submit" class="btn-primary w-full sm:w-auto">Kirim Pesan</button>
+            <p id="form-status" class="text-sm font-medium hidden" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer
+    class="border-t border-slate-200 dark:border-navy-800 py-8 text-center text-sm text-slate-500 dark:text-slate-400">
+    <p>&copy; <span id="year"></span> Izzan Nuha Zamroni. Dibuat dengan HTML5, Tailwind CSS &amp; Vanilla JS.</p>
+  </footer>
+
+  <!-- ============ MODAL SERTIFIKAT ============ -->
+  <div id="cert-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true"
+    aria-labelledby="modal-title">
+    <div id="modal-backdrop" class="absolute inset-0 bg-navy-950/80 backdrop-blur-sm"></div>
+    <div id="modal-panel"
+      class="relative w-full max-w-lg bg-white dark:bg-navy-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-navy-700 overflow-hidden">
+      <button id="modal-close" type="button" aria-label="Tutup"
+        class="absolute top-3 right-3 z-10 w-9 h-9 grid place-items-center rounded-lg bg-white/80 dark:bg-navy-800/80 hover:bg-slate-200 dark:hover:bg-navy-700 transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+
+      <div id="modal-preview"
+        class="aspect-[4/3] bg-gradient-to-br from-navy-800 to-navy-900 grid place-items-center text-center p-6">
+        <!-- Diisi oleh script.js: gambar sertifikat atau placeholder -->
+      </div>
+
+      <div class="p-6">
+        <span id="modal-category" class="tag"></span>
+        <h3 id="modal-title" class="mt-3 text-xl font-bold text-navy-900 dark:text-white"></h3>
+        <p id="modal-issuer" class="mt-1 text-sm text-slate-500 dark:text-slate-400"></p>
+        <p id="modal-date" class="mt-1 text-sm font-semibold text-accent-dark dark:text-accent"></p>
+        <p id="modal-desc" class="mt-3 text-sm leading-relaxed"></p>
+
+        <!-- Tombol Aksi Dokumen (PDF) -->
+        <div id="modal-actions"
+          class="mt-5 pt-4 border-t border-slate-200 dark:border-navy-800 flex flex-wrap gap-3 hidden">
+          <!-- Diisi secara dinamis oleh CertificateManager -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ LIGHTBOX PERBESAR FOTO DOKUMENTASI ============ -->
+  <div id="image-lightbox"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-navy-950/85 backdrop-blur-md" role="dialog"
+    aria-modal="true" aria-label="Pratinjau Foto Dokumentasi">
+    <div id="lightbox-dialog" class="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center">
+      <button id="lightbox-close" type="button" aria-label="Tutup"
+        class="absolute -top-12 right-0 sm:-right-10 w-10 h-10 grid place-items-center rounded-full bg-white/10 text-white hover:bg-white/20 transition">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+      <img id="lightbox-img" src="" alt="Pratinjau Foto"
+        class="max-w-full max-h-[75vh] object-contain rounded-xl shadow-2xl border border-white/15 bg-black/40" />
+      <p id="lightbox-caption" class="mt-3 text-sm text-slate-200 text-center font-medium px-4"></p>
+    </div>
+  </div>
+
+  <!-- Data & Skrip Utama -->
+  <script src="js/data.js" defer></script>
+  <script src="js/script.js" defer></script>
+</body>
+
+</html>
