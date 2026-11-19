@@ -1,0 +1,705 @@
+/**
+ * ============================================================
+ * STYLESHEET PORTOFOLIO - IZZAN NUHA ZAMRONI
+ * ============================================================
+ * Struktur:
+ * 1. Base & Reset
+ * 2. Navbar & Links
+ * 3. Hero & Glow Effects
+ * 4. Buttons
+ * 5. Statistics
+ * 6. Section Titles
+ * 7. Cards & Badges
+ * 8. Experience Timeline
+ * 9. Certificate Filter & Cards
+ * 10. Contact Form
+ * 11. Modal Dialog
+ * 12. Animations & Accessibility
+ */
+
+/* ============================================================
+   1. BASE & RESET
+   ============================================================ */
+html {
+  scroll-padding-top: 5rem;
+}
+
+::selection {
+  background: #22d3ee;
+  color: #0a192f;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1d3557;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ============================================================
+   2. NAVBAR & LINKS
+   ============================================================ */
+#navbar.scrolled {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.08);
+}
+
+.dark #navbar.scrolled {
+  background: rgba(6, 16, 33, 0.85);
+  box-shadow: 0 1px 0 rgba(34, 211, 238, 0.12);
+}
+
+.nav-link {
+  position: relative;
+  padding: 0.25rem 0;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: #22d3ee;
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #0891b2;
+}
+
+.dark .nav-link:hover,
+.dark .nav-link.active {
+  color: #22d3ee;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.mobile-link {
+  display: block;
+  padding: 0.75rem 0.5rem;
+  border-radius: 0.5rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.mobile-link:hover {
+  background: rgba(34, 211, 238, 0.12);
+  color: #0891b2;
+}
+
+.dark .mobile-link:hover {
+  color: #22d3ee;
+}
+
+/* ============================================================
+   3. HERO & GLOW EFFECTS
+   ============================================================ */
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(600px circle at 15% 20%, rgba(34, 211, 238, 0.18), transparent 60%),
+    radial-gradient(500px circle at 85% 10%, rgba(29, 53, 87, 0.25), transparent 60%);
+}
+
+.dark .hero-glow {
+  background:
+    radial-gradient(600px circle at 15% 20%, rgba(34, 211, 238, 0.14), transparent 60%),
+    radial-gradient(500px circle at 85% 10%, rgba(29, 53, 87, 0.7), transparent 60%);
+}
+
+/* Foto Profil Hero */
+.profile-wrapper {
+  position: relative;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.profile-frame {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 1.75rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.15), rgba(29, 53, 87, 0.3));
+  border: 2px solid rgba(34, 211, 238, 0.4);
+  box-shadow: 0 20px 40px -15px rgba(8, 145, 178, 0.3);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.dark .profile-frame {
+  border-color: rgba(34, 211, 238, 0.35);
+  box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.6);
+}
+
+.profile-frame:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: #22d3ee;
+  box-shadow: 0 25px 50px -12px rgba(34, 211, 238, 0.5);
+}
+
+.profile-glow {
+  position: absolute;
+  inset: -15px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.28) 0%, transparent 70%);
+  filter: blur(25px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.profile-badge {
+  position: absolute;
+  bottom: -10px;
+  right: -8px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(34, 211, 238, 0.4);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #0a192f;
+}
+
+.dark .profile-badge {
+  background: rgba(17, 34, 64, 0.95);
+  border-color: rgba(34, 211, 238, 0.35);
+  color: #ffffff;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================================
+   4. BUTTONS
+   ============================================================ */
+.btn-primary,
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.6rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.btn-primary {
+  background: #22d3ee;
+  color: #0a192f;
+  box-shadow: 0 6px 20px -6px rgba(34, 211, 238, 0.6);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px -6px rgba(34, 211, 238, 0.75);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-outline {
+  border: 1.5px solid #0891b2;
+  color: #0891b2;
+}
+
+.btn-outline:hover {
+  background: rgba(34, 211, 238, 0.12);
+  transform: translateY(-2px);
+}
+
+.dark .btn-outline {
+  border-color: #22d3ee;
+  color: #22d3ee;
+}
+
+/* ============================================================
+   5. STATISTICS
+   ============================================================ */
+.stat-card {
+  padding: 1rem;
+  text-align: center;
+  border-radius: 0.9rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.dark .stat-card {
+  background: #112240;
+  border-color: #1d3557;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  border-color: #22d3ee;
+}
+
+.stat-value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0a192f;
+}
+
+.dark .stat-value {
+  color: #22d3ee;
+}
+
+.stat-label {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.dark .stat-label {
+  color: #94a3b8;
+}
+
+@media (min-width: 640px) {
+  .stat-value {
+    font-size: 2.5rem;
+  }
+  .stat-label {
+    font-size: 0.85rem;
+  }
+}
+
+/* ============================================================
+   6. SECTION TITLES
+   ============================================================ */
+.section-title {
+  font-size: 1.875rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #0a192f;
+}
+
+.dark .section-title {
+  color: #ffffff;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 4px;
+  margin-top: 0.6rem;
+  border-radius: 4px;
+  background: #22d3ee;
+}
+
+.section-sub {
+  margin-top: 0.9rem;
+  max-width: 40rem;
+  color: #64748b;
+}
+
+.dark .section-sub {
+  color: #94a3b8;
+}
+
+.group-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0891b2;
+}
+
+.dark .group-title {
+  color: #22d3ee;
+}
+
+/* ============================================================
+   7. CARDS & BADGES
+   ============================================================ */
+.card {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.dark .card {
+  background: #112240;
+  border-color: #1d3557;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #22d3ee;
+  box-shadow: 0 14px 30px -14px rgba(8, 145, 178, 0.45);
+}
+
+.card-title {
+  margin-top: 0.25rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0a192f;
+}
+
+.dark .card-title {
+  color: #ffffff;
+}
+
+.card-text {
+  margin-top: 0.5rem;
+  font-size: 0.925rem;
+  line-height: 1.65;
+}
+
+.icon-box {
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1rem;
+  border-radius: 0.75rem;
+  background: rgba(34, 211, 238, 0.12);
+  color: #0891b2;
+}
+
+.dark .icon-box {
+  color: #22d3ee;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  border-radius: 999px;
+  background: rgba(34, 211, 238, 0.12);
+  color: #0e7490;
+}
+
+.dark .tag {
+  color: #67e8f9;
+}
+
+/* ============================================================
+   8. EXPERIENCE TIMELINE
+   ============================================================ */
+.timeline {
+  position: relative;
+  padding-left: 1.75rem;
+  border-left: 2px solid #cbd5e1;
+}
+
+.dark .timeline {
+  border-color: #1d3557;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: calc(-1.75rem - 7px);
+  top: 1.6rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #22d3ee;
+  box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.25);
+}
+
+/* ============ Foto Dokumentasi Pengalaman ============ */
+.photo-slot {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.65rem;
+  aspect-ratio: 4 / 3;
+  background: #f1f5f9;
+  border: 1px dashed #cbd5e1;
+  cursor: pointer;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dark .photo-slot {
+  background: #0a192f;
+  border-color: #1d3557;
+}
+
+.photo-slot:hover {
+  border-color: #22d3ee;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -6px rgba(34, 211, 238, 0.25);
+}
+
+.photo-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.photo-slot:hover img {
+  transform: scale(1.06);
+}
+
+.photo-slot .placeholder-box {
+  display: none;
+  position: absolute;
+  inset: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.photo-slot.has-placeholder .placeholder-box {
+  display: flex;
+}
+
+.photo-slot.has-placeholder img {
+  display: none;
+}
+
+.photo-slot.has-placeholder .zoom-overlay {
+  display: none;
+}
+
+.photo-slot .zoom-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 16, 33, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.photo-slot:hover .zoom-overlay {
+  opacity: 1;
+}
+
+/* ============ Lightbox Modal ============ */
+#image-lightbox.open {
+  display: flex;
+}
+
+#image-lightbox.open #lightbox-dialog {
+  animation: modalIn 0.3s ease both;
+}
+
+/* ============================================================
+   9. CERTIFICATE FILTER & CARDS
+   ============================================================ */
+.filter-btn {
+  padding: 0.5rem 1.1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 999px;
+  border: 1.5px solid #cbd5e1;
+  color: #475569;
+  transition: all 0.2s ease;
+}
+
+.dark .filter-btn {
+  border-color: #1d3557;
+  color: #94a3b8;
+}
+
+.filter-btn:hover {
+  border-color: #22d3ee;
+  color: #0891b2;
+}
+
+.filter-btn.active {
+  background: #22d3ee;
+  border-color: #22d3ee;
+  color: #0a192f;
+}
+
+.cert-card {
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  animation: certIn 0.4s ease both;
+}
+
+.cert-card:focus-visible {
+  outline: 3px solid #22d3ee;
+  outline-offset: 3px;
+}
+
+@keyframes certIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ============================================================
+   10. CONTACT FORM
+   ============================================================ */
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 0.9rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.dark .contact-item {
+  background: #112240;
+  border-color: #1d3557;
+}
+
+a.contact-item:hover {
+  transform: translateX(4px);
+  border-color: #22d3ee;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #0a192f;
+}
+
+.dark .form-label {
+  color: #e2e8f0;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.6rem;
+  border: 1.5px solid #cbd5e1;
+  background: #f8fafc;
+  color: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dark .form-input {
+  background: #0a192f;
+  border-color: #1d3557;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #22d3ee;
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.25);
+}
+
+.form-input.invalid {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+.form-input.valid {
+  border-color: #10b981;
+}
+
+.form-error {
+  min-height: 1.1rem;
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  color: #ef4444;
+}
+
+/* ============================================================
+   11. MODAL DIALOG
+   ============================================================ */
+#cert-modal.open {
+  display: flex;
+}
+
+#cert-modal.open #modal-panel {
+  animation: modalIn 0.3s ease both;
+}
+
+#cert-modal.open #modal-backdrop {
+  animation: fadeIn 0.3s ease both;
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ============================================================
+   12. ANIMATIONS & ACCESSIBILITY
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Pengurangan gerak untuk pengguna dengan prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
